@@ -1,0 +1,39 @@
+<h2>商品編集</h2>
+
+<%= form_with model: @item, url: {controller:"admin/items",action:"update"} do |f| %>
+<div class="form-inline" >
+<h4>商品画像</h4>
+<%= f.file_field :image, accept: "image/*" %>
+</div>
+
+<div class="form-inline" >
+<h4>商品名</h4>
+<%= f.text_field :name %>
+</div>
+
+<div class="form-inline" >
+<h4>商品説明</h4>
+<%= f.text_area :introduction %>
+</div>
+
+<div class="form-inline" >
+<h4>ジャンル</h4>
+<%= f.collection_select :genre, Genre.all, :id, :name, include_blank: :genre %>
+</div>
+
+<div class="form-inline">
+<h4>税抜価格</h4>
+<%= f.text_field :price %>
+</div>
+
+<div class="form-inline">
+<h4>販売ステータス</h4>
+<label><%= f.radio_button :is_active, true, checked: true %>販売中</label>
+
+<label><%= f.radio_button :is_active, false %>販売停止中</label>
+</div>
+
+<%= f.submit "変更を保存", class: "btn btn-success"%>
+
+<% end %>
+

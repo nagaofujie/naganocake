@@ -1,0 +1,14 @@
+<div class="container">
+<h4>ジャンル編集</h4>
+</div>
+
+  <%= form_with model: @genre,url: {controller:'admin/genres',action:'update'} do |f| %>
+
+  <%= f.label"ジャンル名" %>
+
+  <%= f.text_field :name %>
+
+  <%= f.submit '変更を保存', class:"btn btn-success" %>
+
+
+<% end %>
